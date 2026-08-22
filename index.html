@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5050 Real Estate | Save Thousands on Your New Construction Home | Phoenix, AZ</title>
+<meta name="description" content="5050 Real Estate helps Phoenix-area buyers save thousands on new construction homes. Full-time, local, and always available.">
+<style>
+  :root {
+    --brand-blue: #728EB2;
+    --brand-blue-dark: #56728F;
+    --headline-blue: #718EB0;
+    --subtext-blue: #7A93B5;
+    --cta-red: #C42A22;
+    --cta-red-dark: #A32219;
+    --ink: #1A1A1A;
+    --white: #FFFFFF;
+    --page-bg: #EFF1F4;
+    --max-width: 1240px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background: var(--page-bg);
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ---------- HEADER ---------- */
+  .header-wrap {
+    padding: 0;
+  }
+
+  header {
+    max-width: none;
+    margin: 0;
+    background: var(--brand-blue);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  }
+
+  .logo-block img.badge {
+    height: 96px;
+    display: block;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  nav {
+    display: flex;
+    gap: 22px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--white);
+    flex-wrap: wrap;
+  }
+
+  nav a { white-space: nowrap; opacity: 0.9; transition: opacity 0.2s; }
+  nav a:hover, nav a:focus-visible { opacity: 1; text-decoration: underline; }
+
+  .contact-icons {
+    display: flex;
+    gap: 14px;
+  }
+
+  .contact-icons a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .contact-icons a:hover, .contact-icons a:focus-visible {
+    background: rgba(255,255,255,0.32);
+  }
+
+  .contact-icons svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--white);
+  }
+
+  /* ---------- HERO HEADLINE ---------- */
+  .hero-text {
+    max-width: var(--max-width);
+    margin: 56px auto 40px;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  h1 img.wordmark {
+    max-width: min(100%, 620px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hero-subline {
+    margin-top: 14px;
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .hero-tagline {
+    margin-top: 26px;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .trust-list {
+    max-width: 620px;
+    margin: 34px auto 0;
+    padding: 22px 0;
+    border-top: 1px solid #D7DEE7;
+    border-bottom: 1px solid #D7DEE7;
+  }
+
+  .trust-list p {
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    line-height: 2.1;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 34px;
+    background: var(--cta-red);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+    padding: 18px 34px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(196, 42, 34, 0.3);
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  }
+
+  .cta-button:hover, .cta-button:focus-visible {
+    background: var(--cta-red-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(196, 42, 34, 0.4);
+  }
+
+  .cta-button svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--white);
+  }
+
+  /* ---------- CAROUSEL ---------- */
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 70px;
+    height: min(50vw, 560px);
+    min-height: 320px;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .slide.active { opacity: 1; }
+
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0) 70%);
+  }
+
+  .slide-caption {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    padding: 56px 48px 40px;
+    max-width: 900px;
+    text-align: center;
+  }
+
+  .slide-caption::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: -60px;
+    transform: translateX(-50%);
+    width: min(140%, 1200px);
+    height: calc(100% + 60px);
+    background: radial-gradient(ellipse 60% 90% at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.22) 45%, rgba(0,0,0,0) 80%);
+  }
+
+  .slide-caption .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 800;
+    color: #CFE0F2;
+    margin-bottom: 12px;
+    display: block;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+
+  .slide-caption h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .slide-caption p {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: #E8EEF6;
+    font-weight: 500;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 18px;
+    right: 24px;
+    z-index: 3;
+    display: flex;
+    gap: 8px;
+  }
+
+  .carousel-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.45);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .carousel-dots button.active {
+    background: var(--white);
+    transform: scale(1.25);
+  }
+
+  @media (max-width: 900px) {
+    header {
+      flex-wrap: wrap;
+      row-gap: 12px;
+      padding: 14px 20px;
+    }
+    .header-right { width: 100%; justify-content: space-between; }
+    nav { display: none; } /* simple starting point: full nav can move into a menu button later */
+  }
+</style>
+</head>
+<body>
+
+<div class="header-wrap">
+  <header>
+    <div class="logo-block">
+      <img class="badge" src="assets/header-badge.png" alt="5050 Real Estate, in partnership with WestUSA, Phoenix, Arizona">
+    </div>
+
+    <div class="header-right">
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About 5050</a>
+        <a href="new-home-purchase-process.html">New Home Purchase Process</a>
+        <a href="faq.html">FAQ</a>
+        <a href="insights.html">5050 Insights</a>
+      </nav>
+
+      <div class="contact-icons">
+        <a href="tel:+16235550150" aria-label="Call 5050 Real Estate">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+        </a>
+        <a href="mailto:info@5050realestate.com" aria-label="Email 5050 Real Estate">
+          <svg viewBox="0 0 24 24"><path d="M2 5.5C2 4.7 2.7 4 3.5 4h17c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-17c-.8 0-1.5-.7-1.5-1.5v-13zm2.1.5 7.9 6 7.9-6H4.1zM20 7.9l-7.6 5.8a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section class="hero-text">
+  <h1><img class="wordmark" src="assets/wordmark-5050-realestate.png" alt="5050 Real Estate"></h1>
+  <p class="hero-subline">A win-win for Buyer &amp; Agent!</p>
+
+  <div class="hero-tagline">
+    We Represent You with Your New Construction Home Purchase<br>
+    The Builder Pays Us<br>
+    We Split the Net Commission 50/50 at Closing<br>
+    You Save Big Money Working with 5050 Real Estate - All at Zero Cost to You
+  </div>
+</section>
+
+<section class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Why choose 5050 Real Estate">
+
+  <div class="slide active">
+    <div class="slide-bg" style="background-image:url('assets/hero-community-aerial.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-caption">
+      <span class="eyebrow">Considering Purchasing a New Build in Arizona?</span>
+      <h2>Receive a 50% Net Commission Credit at Close Which Can Save You Thousands of Dollars on Your New Home Purchase.</h2>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-bg" style="background-image:url('assets/hero-framing-exterior.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-caption">
+      <span class="eyebrow">You're In Control of Your Commission Credit Savings</span>
+      <h2>Use Your Commission Credit to Reduce Your Overall Cost or Apply It Towards Builder Upgrades.</h2>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-bg" style="background-image:url('assets/hero-framing-interior.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-caption">
+      <span class="eyebrow">Built-In Buyer Rebate</span>
+      <h2>Don't Overpay! Get Commission Credit at Closing.</h2>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-bg" style="background-image:url('assets/hero-living-room.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-caption">
+      <span class="eyebrow">A Win-Win! Buy a Brand New Home and Save!</span>
+      <h2>Part of our commission goes back to you. Enjoy Your Beautiful Brand New Home Knowing You Got a Great Deal.</h2>
+    </div>
+  </div>
+
+  <div class="carousel-dots" id="carousel-dots"></div>
+</section>
+
+<script>
+  (function () {
+    const slides = document.querySelectorAll('.slide');
+    const dotsWrap = document.getElementById('carousel-dots');
+    let current = 0;
+    const interval = 5000;
+    let timer;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.setAttribute('aria-label', 'Show slide ' + (i + 1));
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    const dots = dotsWrap.querySelectorAll('button');
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      resetTimer();
+    }
+
+    function next() {
+      goTo((current + 1) % slides.length);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(next, interval);
+    }
+
+    resetTimer();
+  })();
+</script>
+
+</body>
+</html>
