@@ -3,150 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 <title>5050 Real Estate | Save Thousands on Your New Construction Home | Phoenix, AZ</title>
 <meta name="description" content="5050 Real Estate helps Phoenix-area buyers save thousands on new construction homes. Full-time, local, and always available.">
+<link rel="canonical" href="https://www.5050realestate.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="5050 Real Estate">
+<meta property="og:title" content="5050 Real Estate | Save Thousands on Your New Construction Home | Phoenix, AZ">
+<meta property="og:description" content="5050 Real Estate helps Phoenix-area buyers save thousands on new construction homes. Full-time, local, and always available.">
+<meta property="og:url" content="https://www.5050realestate.com/">
+<meta property="og:image" content="https://www.5050realestate.com/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="5050 Real Estate | Save Thousands on Your New Construction Home | Phoenix, AZ">
+<meta name="twitter:description" content="5050 Real Estate helps Phoenix-area buyers save thousands on new construction homes. Full-time, local, and always available.">
+<meta name="twitter:image" content="https://www.5050realestate.com/assets/og-image.jpg">
 <style>
-  :root {
-    --brand-blue: #728EB2;
-    --brand-blue-dark: #56728F;
-    --headline-blue: #718EB0;
-    --subtext-blue: #7A93B5;
-    --cta-red: #C42A22;
-    --cta-red-dark: #A32219;
-    --ink: #1A1A1A;
-    --white: #FFFFFF;
-    --page-bg: #D8DCE2;
-    --max-width: 1240px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-    color: var(--ink);
-    background: var(--page-bg);
-  }
-
-  a { text-decoration: none; color: inherit; }
-
-  /* ---------- HEADER ---------- */
-  .header-wrap {
-    padding: 0;
-  }
-
-  header {
-    max-width: none;
-    margin: 0;
-    background: var(--brand-blue);
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 40px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-  }
-
-  .logo-block img.badge {
-    height: 96px;
-    display: block;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-  }
-
-  nav {
-    display: flex;
-    gap: 22px;
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--white);
-    flex-wrap: wrap;
-  }
-
-  nav a { white-space: nowrap; opacity: 0.9; transition: opacity 0.2s; }
-  nav a:hover, nav a:focus-visible { opacity: 1; text-decoration: underline; }
-
-  .contact-icons {
-    display: flex;
-    gap: 14px;
-  }
-
-  .contact-icons a {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.18);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-  }
-
-  .contact-icons a:hover, .contact-icons a:focus-visible {
-    background: rgba(255,255,255,0.32);
-  }
-
-  .contact-icons svg {
-    width: 18px;
-    height: 18px;
-    fill: var(--white);
-  }
-
-  .menu-toggle {
-    display: none;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.18);
-    border: none;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-  }
-
-  .menu-toggle:hover, .menu-toggle:focus-visible {
-    background: rgba(255,255,255,0.32);
-  }
-
-  .menu-toggle svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--white);
-  }
-
-  .mobile-nav {
-    display: none;
-    background: var(--brand-blue-dark);
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.25s ease;
-  }
-
-  .mobile-nav.open {
-    max-height: 400px;
-  }
-
-  .mobile-nav nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 6px 20px 14px;
-  }
-
-  .mobile-nav nav a {
-    color: var(--white);
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 12px 4px;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-  }
-
-  .mobile-nav nav a:last-child { border-bottom: none; }
-
   /* ---------- HERO HEADLINE ---------- */
   .hero-text {
     max-width: var(--max-width);
@@ -156,7 +27,7 @@
   }
 
   h1 img.wordmark {
-    max-width: min(100%, 620px);
+    max-width: min(100%, 434px);
     height: auto;
     display: block;
     margin: 0 auto;
@@ -164,7 +35,7 @@
 
   .hero-subline {
     margin-top: 14px;
-    font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
     color: var(--ink);
     font-weight: 800;
   }
@@ -290,9 +161,9 @@
     left: 50%;
     top: -60px;
     transform: translateX(-50%);
-    width: min(140%, 1200px);
-    height: calc(100% + 60px);
-    background: radial-gradient(ellipse 60% 90% at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.22) 45%, rgba(0,0,0,0) 80%);
+    width: min(160%, 1400px);
+    height: calc(100% + 340px);
+    background: radial-gradient(ellipse 65% 55% at center 30%, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.26) 35%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);
   }
 
   .slide-caption .eyebrow {
@@ -346,19 +217,6 @@
   }
 
   @media (max-width: 900px) {
-    header {
-      padding: 10px 16px;
-    }
-    .logo-block img.badge {
-      height: 52px;
-    }
-    .header-right {
-      gap: 10px;
-    }
-    nav { display: none; } /* desktop inline nav hidden; replaced by mobile-nav dropdown */
-    .menu-toggle { display: flex; }
-    .mobile-nav { display: block; }
-
     .hero-tagline {
       list-style: disc;
       text-align: left;
@@ -380,15 +238,15 @@
     }
 
     .slide-caption {
-      padding: 26px 20px 90px;
+      padding: 72px 20px 90px;
     }
 
     .slide-caption .eyebrow {
-      font-size: 0.85rem;
+      font-size: 0.95rem;
     }
 
     .slide-caption h2 {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
     }
 
     .slide-cta {
@@ -473,7 +331,7 @@
   </div>
 
   <div class="slide">
-    <div class="slide-bg" data-bg="assets/hero-framing-exterior.jpg"></div>
+    <div class="slide-bg" data-bg="assets/hero-framing-exterior.jpg" style="background-position: center 15%;"></div>
     <div class="slide-overlay"></div>
     <div class="slide-caption">
       <span class="eyebrow">You're In Control of Your Commission Credit Savings</span>

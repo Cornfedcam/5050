@@ -1,0 +1,246 @@
+/* ===========================================================
+   5050 Real Estate — Shared Site Styles
+   Used by: index.html, work-with-5050.html, about.html, faq.html
+   Page-specific styles (hero, timeline, stats, FAQ accordion, etc.)
+   remain in each page's own <style> block.
+   =========================================================== */
+
+:root {
+  --brand-blue: #728EB2;
+  --brand-blue-dark: #56728F;
+  --headline-blue: #718EB0;
+  --subtext-blue: #7A93B5;
+  --cta-red: #C42A22;
+  --cta-red-dark: #A32219;
+  --ink: #1A1A1A;
+  --white: #FFFFFF;
+  --page-bg: #D8DCE2;
+  --max-width: 1240px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--page-bg);
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ---------- HEADER ---------- */
+.header-wrap {
+  padding: 0;
+}
+
+header {
+  max-width: none;
+  margin: 0;
+  background: var(--brand-blue);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+.logo-block img.badge {
+  height: 96px;
+  display: block;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--white);
+  flex-wrap: wrap;
+}
+
+nav a { white-space: nowrap; opacity: 0.9; transition: opacity 0.2s; }
+nav a:hover, nav a:focus-visible { opacity: 1; text-decoration: underline; }
+nav a.current { text-decoration: underline; opacity: 1; }
+
+.contact-icons {
+  display: flex;
+  gap: 14px;
+}
+
+.contact-icons a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.contact-icons a:hover, .contact-icons a:focus-visible {
+  background: rgba(255,255,255,0.32);
+}
+
+.contact-icons svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--white);
+}
+
+.menu-toggle {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.menu-toggle:hover, .menu-toggle:focus-visible {
+  background: rgba(255,255,255,0.32);
+}
+
+.menu-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--white);
+}
+
+.mobile-nav {
+  display: none;
+  background: var(--brand-blue-dark);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease;
+}
+
+.mobile-nav.open {
+  max-height: 400px;
+}
+
+.mobile-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 6px 20px 14px;
+}
+
+.mobile-nav nav a {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.mobile-nav nav a:last-child { border-bottom: none; }
+
+/* ---------- PAGE INTRO (used by work-with-5050, about, faq) ---------- */
+.page-intro {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 20px 10px;
+}
+
+.page-intro h1 {
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.page-intro p {
+  margin-top: 12px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--ink);
+  font-weight: 500;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- CTA (used by work-with-5050, about, faq) ---------- */
+.cta-section {
+  max-width: var(--max-width);
+  margin: 20px auto 70px;
+  padding: 0 20px;
+}
+
+.cta-box {
+  background: var(--brand-blue);
+  color: var(--white);
+  border-radius: 20px;
+  padding: 44px 36px;
+  text-align: center;
+}
+
+.cta-box h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.cta-box p {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: #EAF0F7;
+  max-width: 640px;
+  margin: 0 auto 26px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-buttons a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  color: var(--brand-blue-dark);
+  font-weight: 800;
+  padding: 14px 26px;
+  border-radius: 8px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.cta-buttons a:hover, .cta-buttons a:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+.cta-buttons svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--brand-blue-dark);
+}
+
+/* ---------- SHARED MOBILE HEADER RULES ---------- */
+@media (max-width: 900px) {
+  header {
+    padding: 10px 16px;
+  }
+  .logo-block img.badge {
+    height: 52px;
+  }
+  .header-right {
+    gap: 10px;
+  }
+  nav { display: none; }
+  .menu-toggle { display: flex; }
+  .mobile-nav { display: block; }
+}
