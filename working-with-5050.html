@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Working With 5050 Real Estate | Your New Home Buying Process | Phoenix, AZ</title>
+<meta name="description" content="See exactly how the 5050 Real Estate process works, from deciding to buy to closing escrow with a commission credit back to you.">
+<style>
+  :root {
+    --brand-blue: #728EB2;
+    --brand-blue-dark: #56728F;
+    --headline-blue: #718EB0;
+    --subtext-blue: #7A93B5;
+    --cta-red: #C42A22;
+    --cta-red-dark: #A32219;
+    --ink: #1A1A1A;
+    --white: #FFFFFF;
+    --page-bg: #EFF1F4;
+    --max-width: 1240px;
+
+    --timeline-bg: #161D27;
+    --timeline-accent: #E3985F;
+    --timeline-accent-dark: #C97B42;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background: var(--page-bg);
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ---------- HEADER ---------- */
+  .header-wrap {
+    padding: 0;
+  }
+
+  header {
+    max-width: none;
+    margin: 0;
+    background: var(--brand-blue);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  }
+
+  .logo-block img.badge {
+    height: 96px;
+    display: block;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  nav {
+    display: flex;
+    gap: 22px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--white);
+    flex-wrap: wrap;
+  }
+
+  nav a { white-space: nowrap; opacity: 0.9; transition: opacity 0.2s; }
+  nav a:hover, nav a:focus-visible { opacity: 1; text-decoration: underline; }
+  nav a.current { text-decoration: underline; opacity: 1; }
+
+  .contact-icons {
+    display: flex;
+    gap: 14px;
+  }
+
+  .contact-icons a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .contact-icons a:hover, .contact-icons a:focus-visible {
+    background: rgba(255,255,255,0.32);
+  }
+
+  .contact-icons svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--white);
+  }
+
+  .menu-toggle {
+    display: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .menu-toggle:hover, .menu-toggle:focus-visible {
+    background: rgba(255,255,255,0.32);
+  }
+
+  .menu-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--white);
+  }
+
+  .mobile-nav {
+    display: none;
+    background: var(--brand-blue-dark);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.25s ease;
+  }
+
+  .mobile-nav.open {
+    max-height: 400px;
+  }
+
+  .mobile-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 20px 14px;
+  }
+
+  .mobile-nav nav a {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 12px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .mobile-nav nav a:last-child { border-bottom: none; }
+
+  /* ---------- PAGE INTRO ---------- */
+  .page-intro {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 20px 10px;
+  }
+
+  .page-intro h1 {
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    color: var(--ink);
+    font-weight: 800;
+  }
+
+  .page-intro p {
+    margin-top: 12px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--ink);
+    font-weight: 500;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---------- TIMELINE (light) ---------- */
+  .timeline-section {
+    background: var(--page-bg);
+    color: var(--ink);
+    margin: 40px 0 0;
+    padding: 60px 40px 90px;
+  }
+
+  .timeline-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .timeline-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--ink);
+    font-family: 'Courier New', monospace;
+  }
+
+  .timeline-title {
+    margin-top: 14px;
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .timeline-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+    margin-top: 70px;
+    padding: 0 10px;
+  }
+
+  .timeline-grid::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    right: 28px;
+    height: 0;
+    border-top: 3px dashed var(--timeline-accent-dark);
+    z-index: 0;
+  }
+
+  .timeline-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row: 1;
+    cursor: pointer;
+    padding-top: 4px;
+  }
+
+  .timeline-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--brand-blue);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 0 6px var(--page-bg);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .timeline-step:hover .timeline-num,
+  .timeline-step:focus-within .timeline-num {
+    background: var(--white);
+    color: var(--brand-blue-dark);
+    transform: scale(1.08);
+    box-shadow: 0 0 0 6px var(--page-bg), 0 6px 16px rgba(0,0,0,0.18);
+  }
+
+  .timeline-label {
+    margin-top: 18px;
+    font-weight: 800;
+    font-size: clamp(0.72rem, 1.5vw, 0.95rem);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding: 0 4px;
+    color: var(--ink);
+  }
+
+  /* ---------- STEP DETAIL CARDS (hover reveal) ---------- */
+  .step-card {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+    padding: 36px 40px;
+    margin-top: 34px;
+    display: none;
+    gap: 26px;
+  }
+
+  .timeline-step:hover + .step-card,
+  .timeline-step:focus-within + .step-card,
+  .step-card:hover {
+    display: flex;
+  }
+
+  .step-card-num {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--brand-blue);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+  }
+
+  .step-card h2 {
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    color: var(--headline-blue);
+    margin-bottom: 12px;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  .step-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .step-card p:last-child { margin-bottom: 0; }
+
+  /* ---------- CTA ---------- */
+  .cta-section {
+    max-width: var(--max-width);
+    margin: 20px auto 70px;
+    padding: 0 20px;
+  }
+
+  .cta-box {
+    background: var(--brand-blue);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 44px 36px;
+    text-align: center;
+  }
+
+  .cta-box h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .cta-box p {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: #EAF0F7;
+    max-width: 640px;
+    margin: 0 auto 26px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .cta-buttons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--brand-blue-dark);
+    font-weight: 800;
+    padding: 14px 26px;
+    border-radius: 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .cta-buttons a:hover, .cta-buttons a:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  }
+
+  .cta-buttons svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--brand-blue-dark);
+  }
+
+  @media (max-width: 900px) {
+    header {
+      padding: 10px 16px;
+    }
+    .logo-block img.badge {
+      height: 52px;
+    }
+    .header-right {
+      gap: 10px;
+    }
+    nav { display: none; }
+    .menu-toggle { display: flex; }
+    .mobile-nav { display: block; }
+
+    .timeline-section {
+      padding: 44px 20px 56px;
+    }
+
+    .timeline-grid {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 34px;
+      column-gap: 14px;
+    }
+
+    .timeline-grid::before {
+      display: none;
+    }
+
+    .timeline-step {
+      grid-row: auto !important;
+    }
+
+    .step-card {
+      grid-column: 1 / -1 !important;
+      grid-row: auto !important;
+      flex-direction: column;
+      padding: 28px 24px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .timeline-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header-wrap">
+  <header>
+    <div class="logo-block">
+      <img class="badge" src="assets/header-badge.png" alt="5050 Real Estate, in partnership with WestUSA, Phoenix, Arizona">
+    </div>
+
+    <div class="header-right">
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="working-with-5050.html" class="current">Working With 5050</a>
+        <a href="about.html">About 5050</a>
+        <a href="faq.html">FAQ</a>
+        <a href="insights.html">5050 Insights</a>
+      </nav>
+
+      <div class="contact-icons">
+        <a href="tel:+16235550150" aria-label="Call 5050 Real Estate">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+        </a>
+        <a href="mailto:info@5050realestate.com" aria-label="Email 5050 Real Estate">
+          <svg viewBox="0 0 24 24"><path d="M2 5.5C2 4.7 2.7 4 3.5 4h17c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-17c-.8 0-1.5-.7-1.5-1.5v-13zm2.1.5 7.9 6 7.9-6H4.1zM20 7.9l-7.6 5.8a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg>
+        </a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg viewBox="0 0 24 24" id="menu-icon"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <nav aria-label="Mobile Primary">
+      <a href="index.html">Home</a>
+      <a href="working-with-5050.html" class="current">Working With 5050</a>
+      <a href="about.html">About 5050</a>
+      <a href="faq.html">FAQ</a>
+      <a href="insights.html">5050 Insights</a>
+    </nav>
+  </div>
+</div>
+
+<section class="page-intro">
+  <h1>Working With 5050 Real Estate is Easy</h1>
+  <p>Here's exactly how the process works, from the moment you decide to purchase to the day you close escrow with a commission credit saving you money,</p>
+</section>
+
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <span class="timeline-eyebrow">The 5050 Real Estate Buying Process</span>
+    <h2 class="timeline-title">Five Steps, Zero Surprises</h2>
+
+    <div class="timeline-grid">
+      <div class="timeline-step" tabindex="0">
+        <div class="timeline-num">01</div>
+        <div class="timeline-label">Decide to Purchase a New Build</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-num">01</div>
+        <div>
+          <h2>You Decide to Purchase a New Build Home!</h2>
+          <p>You've searched homes online. You've crunched the numbers. You have made the decision to purchase a new home! Purchasing a new home is truly exciting. New construction homes are energy efficient and are pre-wired for all of today's smart technology. Everything in the home is shiny and brand new &mdash; purchasing a brand new home is an exciting new chapter.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step" tabindex="0">
+        <div class="timeline-num">02</div>
+        <div class="timeline-label">Contact 5050 First!</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-num">02</div>
+        <div>
+          <h2>Make Contact With 5050 Real Estate Before You Register With the New Home Builder</h2>
+          <p>New builders offer commission to a real estate agent who brings a buyer to one of their communities for a home purchase. The most important part of the process is that the real estate agent must register the buyer before the buyer tours a model home on their own and registers themselves with the home builder.</p>
+          <p>If you, the buyer, were to register yourself first without the representation of a real estate agent, the builder will offer no commission on the home sale. Even if a real estate agent were to attempt to get involved in the transaction after the fact, the builder will still deny commission on the sale.</p>
+          <p>Therefore it is critical, important, and essential to connect with 5050 Real Estate first!</p>
+        </div>
+      </div>
+
+      <div class="timeline-step" tabindex="0">
+        <div class="timeline-num">03</div>
+        <div class="timeline-label">Let 5050 Register You With the Builder</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-num">03</div>
+        <div>
+          <h2>5050 Real Estate Will Register You With the New Home Builder</h2>
+          <p>Timing of registration is extremely important. A real estate agent must register you first with the home builder. If you, the buyer, register yourself online at a builder's website or in-person at a model home without the representation of a real estate agent, the new home builder will not offer a commission on the sale.</p>
+          <p>If you call 5050 Real Estate first, we will register you with the builder, either in-person at the model home or online (every builder has their own rules for registration). With a successful close of escrow, 5050 Real Estate will credit you, the buyer, 50% of the net commission at close of escrow &mdash; potentially lowering the overall cost of your new home by thousands of dollars.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step" tabindex="0">
+        <div class="timeline-num">04</div>
+        <div class="timeline-label">Tour &amp; Choose</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-num">04</div>
+        <div>
+          <h2>Tour Model Homes and Decide on Your New Home and Lot</h2>
+          <p>This honestly is the best part of the process. Model homes are absolutely beautiful! You get to see all the wonderful homes with all the amazing amenities. When walking and touring a model home, you can actually picture yourself and/or your family living in the home. 5050 Real Estate can help you decide the best neighborhood for purchase and the best lot to select for your new home build.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step" tabindex="0">
+        <div class="timeline-num">05</div>
+        <div class="timeline-label">Close Escrow</div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-num">05</div>
+        <div>
+          <h2>Close Escrow on Your Beautiful New Home</h2>
+          <p>The date has finally arrived! Your new home is fully constructed and ready for move-in. It's time to sign all documents from the title company to officially make the new home yours. When you are reviewing your closing documentation, you'll happily see the commission credit from 5050 Real Estate which lowered the overall cost of your home.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-box">
+    <h2>Ready to Start Step One?</h2>
+    <p>Remember &mdash; the most important step is calling 5050 Real Estate before you register with any builder. Reach out today so we can register you the right way, from the start.</p>
+    <div class="cta-buttons">
+      <a href="tel:+16235550150">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+        Call 5050 Real Estate
+      </a>
+      <a href="mailto:info@5050realestate.com">
+        <svg viewBox="0 0 24 24"><path d="M2 5.5C2 4.7 2.7 4 3.5 4h17c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-17c-.8 0-1.5-.7-1.5-1.5v-13zm2.1.5 7.9 6 7.9-6H4.1zM20 7.9l-7.6 5.8a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg>
+        Email 5050 Real Estate
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const toggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const menuIcon = document.getElementById('menu-icon');
+    const hamburgerPath = "M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z";
+    const closePath = "M6.4 4.9 4.9 6.4 10.6 12l-5.7 5.6 1.5 1.5L12 13.4l5.6 5.7 1.5-1.5L13.4 12l5.7-5.6-1.5-1.5L12 10.6z";
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuIcon.querySelector('path').setAttribute('d', isOpen ? closePath : hamburgerPath);
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        menuIcon.querySelector('path').setAttribute('d', hamburgerPath);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

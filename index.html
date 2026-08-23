@@ -95,6 +95,58 @@
     fill: var(--white);
   }
 
+  .menu-toggle {
+    display: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .menu-toggle:hover, .menu-toggle:focus-visible {
+    background: rgba(255,255,255,0.32);
+  }
+
+  .menu-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--white);
+  }
+
+  .mobile-nav {
+    display: none;
+    background: var(--brand-blue-dark);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.25s ease;
+  }
+
+  .mobile-nav.open {
+    max-height: 400px;
+  }
+
+  .mobile-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 20px 14px;
+  }
+
+  .mobile-nav nav a {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 12px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .mobile-nav nav a:last-child { border-bottom: none; }
+
   /* ---------- HERO HEADLINE ---------- */
   .hero-text {
     max-width: var(--max-width);
@@ -123,6 +175,7 @@
     color: var(--ink);
     font-weight: 500;
     line-height: 1.7;
+    list-style: none;
   }
 
   .trust-list {
@@ -279,12 +332,32 @@
 
   @media (max-width: 900px) {
     header {
-      flex-wrap: wrap;
-      row-gap: 12px;
-      padding: 14px 20px;
+      padding: 10px 16px;
     }
-    .header-right { width: 100%; justify-content: space-between; }
-    nav { display: none; } /* simple starting point: full nav can move into a menu button later */
+    .logo-block img.badge {
+      height: 52px;
+    }
+    .header-right {
+      gap: 10px;
+    }
+    nav { display: none; } /* desktop inline nav hidden; replaced by mobile-nav dropdown */
+    .menu-toggle { display: flex; }
+    .mobile-nav { display: block; }
+
+    .hero-tagline {
+      list-style: disc;
+      text-align: left;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.3em;
+    }
+    .hero-tagline li {
+      margin-bottom: 8px;
+    }
+    .hero-tagline li::marker {
+      color: var(--brand-blue);
+    }
   }
 </style>
 </head>
@@ -299,8 +372,8 @@
     <div class="header-right">
       <nav aria-label="Primary">
         <a href="index.html">Home</a>
+        <a href="working-with-5050.html">Working With 5050</a>
         <a href="about.html">About 5050</a>
-        <a href="new-home-purchase-process.html">New Home Purchase Process</a>
         <a href="faq.html">FAQ</a>
         <a href="insights.html">5050 Insights</a>
       </nav>
@@ -313,20 +386,34 @@
           <svg viewBox="0 0 24 24"><path d="M2 5.5C2 4.7 2.7 4 3.5 4h17c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-17c-.8 0-1.5-.7-1.5-1.5v-13zm2.1.5 7.9 6 7.9-6H4.1zM20 7.9l-7.6 5.8a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg>
         </a>
       </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg viewBox="0 0 24 24" id="menu-icon"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+      </button>
     </div>
   </header>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <nav aria-label="Mobile Primary">
+      <a href="index.html">Home</a>
+      <a href="working-with-5050.html">Working With 5050</a>
+      <a href="about.html">About 5050</a>
+      <a href="faq.html">FAQ</a>
+      <a href="insights.html">5050 Insights</a>
+    </nav>
+  </div>
 </div>
 
 <section class="hero-text">
   <h1><img class="wordmark" src="assets/wordmark-5050-realestate.png" alt="5050 Real Estate"></h1>
   <p class="hero-subline">A win-win for Buyer &amp; Agent!</p>
 
-  <div class="hero-tagline">
-    We Represent You with Your New Construction Home Purchase<br>
-    The Builder Pays Us<br>
-    We Split the Net Commission 50/50 at Closing<br>
-    You Save Big Money Working with 5050 Real Estate - All at Zero Cost to You
-  </div>
+  <ul class="hero-tagline">
+    <li>We Represent You with Your New Construction Home Purchase</li>
+    <li>The Builder Pays Us</li>
+    <li>We Split the Net Commission 50/50 at Closing</li>
+    <li>You Save Big Money Working with 5050 Real Estate - All at Zero Cost to You</li>
+  </ul>
 </section>
 
 <section class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Why choose 5050 Real Estate">
@@ -369,6 +456,30 @@
 
   <div class="carousel-dots" id="carousel-dots"></div>
 </section>
+
+<script>
+  (function () {
+    const toggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const menuIcon = document.getElementById('menu-icon');
+    const hamburgerPath = "M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z";
+    const closePath = "M6.4 4.9 4.9 6.4 10.6 12l-5.7 5.6 1.5 1.5L12 13.4l5.6 5.7 1.5-1.5L13.4 12l5.7-5.6-1.5-1.5L12 10.6z";
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuIcon.querySelector('path').setAttribute('d', isOpen ? closePath : hamburgerPath);
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        menuIcon.querySelector('path').setAttribute('d', hamburgerPath);
+      });
+    });
+  })();
+</script>
 
 <script>
   (function () {
