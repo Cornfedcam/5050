@@ -407,6 +407,7 @@
       grid-template-columns: repeat(3, 1fr);
       row-gap: 34px;
       column-gap: 14px;
+      margin-top: 30px;
     }
 
     .timeline-grid::before {
@@ -414,7 +415,7 @@
     }
 
     .timeline-step {
-      grid-row: auto !important;
+      display: none; /* hide the circle+label timeline on mobile; cards are shown open instead */
     }
 
     .step-card {
@@ -422,6 +423,8 @@
       grid-row: auto !important;
       flex-direction: column;
       padding: 28px 24px;
+      order: 2;
+      display: flex !important; /* always open on mobile so users can just scroll through all 5 steps */
     }
   }
 
