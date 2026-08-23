@@ -15,7 +15,7 @@
     --cta-red-dark: #A32219;
     --ink: #1A1A1A;
     --white: #FFFFFF;
-    --page-bg: #EFF1F4;
+    --page-bg: #D8DCE2;
     --max-width: 1240px;
   }
 
@@ -223,6 +223,21 @@
     fill: var(--white);
   }
 
+  .slide-cta {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    margin-top: 0;
+    padding: 14px 30px;
+    font-size: 1rem;
+  }
+
+  .slide-cta:hover, .slide-cta:focus-visible {
+    transform: translateX(-50%) translateY(-2px);
+  }
+
   /* ---------- CAROUSEL ---------- */
   .carousel {
     position: relative;
@@ -372,7 +387,7 @@
     <div class="header-right">
       <nav aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="working-with-5050.html">Working With 5050</a>
+        <a href="working-with-5050.html">Work with 5050</a>
         <a href="about.html">About 5050</a>
         <a href="faq.html">FAQ</a>
         <a href="insights.html">5050 Insights</a>
@@ -396,7 +411,7 @@
   <div class="mobile-nav" id="mobile-nav">
     <nav aria-label="Mobile Primary">
       <a href="index.html">Home</a>
-      <a href="working-with-5050.html">Working With 5050</a>
+      <a href="working-with-5050.html">Work with 5050</a>
       <a href="about.html">About 5050</a>
       <a href="faq.html">FAQ</a>
       <a href="insights.html">5050 Insights</a>
@@ -425,33 +440,49 @@
       <span class="eyebrow">Considering Purchasing a New Build in Arizona?</span>
       <h2>Receive a 50% Net Commission Credit at Close Which Can Save You Thousands of Dollars on Your New Home Purchase.</h2>
     </div>
+    <a href="working-with-5050.html" class="cta-button slide-cta">
+      Work with 5050
+      <svg viewBox="0 0 24 24"><path d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z"/></svg>
+    </a>
   </div>
 
   <div class="slide">
-    <div class="slide-bg" style="background-image:url('assets/hero-framing-exterior.jpg')"></div>
+    <div class="slide-bg" data-bg="assets/hero-framing-exterior.jpg"></div>
     <div class="slide-overlay"></div>
     <div class="slide-caption">
       <span class="eyebrow">You're In Control of Your Commission Credit Savings</span>
       <h2>Use Your Commission Credit to Reduce Your Overall Cost or Apply It Towards Builder Upgrades.</h2>
     </div>
+    <a href="working-with-5050.html" class="cta-button slide-cta">
+      Work with 5050
+      <svg viewBox="0 0 24 24"><path d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z"/></svg>
+    </a>
   </div>
 
   <div class="slide">
-    <div class="slide-bg" style="background-image:url('assets/hero-framing-interior.jpg')"></div>
+    <div class="slide-bg" data-bg="assets/hero-framing-interior.jpg"></div>
     <div class="slide-overlay"></div>
     <div class="slide-caption">
       <span class="eyebrow">Built-In Buyer Rebate</span>
       <h2>Don't Overpay! Get Commission Credit at Closing.</h2>
     </div>
+    <a href="working-with-5050.html" class="cta-button slide-cta">
+      Work with 5050
+      <svg viewBox="0 0 24 24"><path d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z"/></svg>
+    </a>
   </div>
 
   <div class="slide">
-    <div class="slide-bg" style="background-image:url('assets/hero-living-room.jpg')"></div>
+    <div class="slide-bg" data-bg="assets/hero-living-room.jpg"></div>
     <div class="slide-overlay"></div>
     <div class="slide-caption">
       <span class="eyebrow">A Win-Win! Buy a Brand New Home and Save!</span>
       <h2>Part of our commission goes back to you. Enjoy Your Beautiful Brand New Home Knowing You Got a Great Deal.</h2>
     </div>
+    <a href="working-with-5050.html" class="cta-button slide-cta">
+      Work with 5050
+      <svg viewBox="0 0 24 24"><path d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z"/></svg>
+    </a>
   </div>
 
   <div class="carousel-dots" id="carousel-dots"></div>
@@ -489,6 +520,14 @@
     const interval = 5000;
     let timer;
 
+    function loadSlideBg(slide) {
+      if (!slide) return;
+      const bg = slide.querySelector('.slide-bg');
+      if (bg && bg.dataset.bg && !bg.style.backgroundImage) {
+        bg.style.backgroundImage = "url('" + bg.dataset.bg + "')";
+      }
+    }
+
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
       dot.setAttribute('aria-label', 'Show slide ' + (i + 1));
@@ -505,6 +544,8 @@
       current = index;
       slides[current].classList.add('active');
       dots[current].classList.add('active');
+      loadSlideBg(slides[current]);
+      loadSlideBg(slides[(current + 1) % slides.length]); // preload the next slide so it's ready before its turn
       resetTimer();
     }
 
@@ -516,6 +557,9 @@
       clearInterval(timer);
       timer = setInterval(next, interval);
     }
+
+    // slide 0 loads eagerly (it's the initial hero image); preload slide 1 right away since it's next in 5s
+    loadSlideBg(slides[1]);
 
     resetTimer();
   })();
